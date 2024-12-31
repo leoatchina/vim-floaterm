@@ -1,5 +1,11 @@
 # For current directory only
 
+.vscode/
+.idea/
+.svn/
+.hg/
+.vim/
+.root/
 vimrc
 *.appimage
 test.txt
