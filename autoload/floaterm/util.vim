@@ -147,24 +147,24 @@ endfunction
 let s:home = fnamemodify(resolve(expand('<sfile>:p')), ':h:h')
 let s:binpath = fnamemodify(s:home . '/../bin', ':p')
 function! floaterm#util#setenv() abort
-  let env = {}
-  " bin/floaterm.cmd
-  if has('win32') && !has('nvim')
-    let env.VIM_SERVERNAME = v:servername
-    let env.VIM_EXE = v:progpath
-  endif
-  if has('win32') == 0
-    let env.PATH = $PATH . ':' . s:binpath
-  else
-    let env.PATH = $PATH . ';' . s:binpath
-  endif
-  let editor = floaterm#edita#setup#EDITOR()
-  let env.FLOATERM = editor
-  if g:floaterm_giteditor
-    let env.GIT_EDITOR = editor
-    let env.HGEDITOR = editor
-  endif
-  return env
+    let env = {}
+    " bin/floaterm.cmd
+    if has('win32') && !has('nvim')
+        let env.VIM_SERVERNAME = v:servername
+        let env.VIM_EXE = v:progpath
+    endif
+    if has('win32') == 0
+        let env.PATH = $PATH . ':' . s:binpath
+    else
+        let env.PATH = $PATH . ';' . s:binpath
+    endif
+    let editor = floaterm#edita#setup#EDITOR()
+    let env.FLOATERM = editor
+    if g:floaterm_giteditor
+        let env.GIT_EDITOR = editor
+        let env.HGEDITOR = editor
+    endif
+    return env
 endfunction
 
 function! floaterm#util#vim_version() abort
